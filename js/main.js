@@ -7,6 +7,6 @@ var list = [{name: "Haircut", due: "2013-10-30 19:00", completed: "false"},
 
    document.write("<ul class='list-group'>");
     for (var i=0; i < list.length; i++){
-    document.write("<li class='list-group-item'>" + list.name[i] + " </li>");
+    document.write("<li class='list-group-item'>" + list.name + " </li>");
     } 
     document.write("</ul>");
