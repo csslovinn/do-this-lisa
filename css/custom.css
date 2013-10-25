@@ -4,3 +4,6 @@ body {
 .panel-body {
     background-color:#cf116d;
     }
+li.done {
+   display:none; 
+}
