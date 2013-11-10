@@ -1,5 +1,6 @@
 //To-Do List
-var list = [{due: "2013-10-30 19:00", completed: false}, 
+$(document).ready(function() {
+    var list = [{due: "2013-10-30 19:00", completed: false}, 
     {name : "Groceries", due: "2013-10-26 16:00", completed: true}, 
     {name : "Homework", due: "2013-10-22 23:59", completed: true}, 
     {name : "Buy tent", due: "2013-11-25 16:00", completed: false}, 
@@ -7,11 +8,10 @@ var list = [{due: "2013-10-30 19:00", completed: false},
     {name : "Call mom", due: "2013-11-04 12:00", completed: false}, 
     {name : "Buy flowers", due: "2013-10-28 23:59", completed: false}, 
     {name : "Register for next class", due: "2013-12-01 16:00", completed: false}, 
-    {name : "Sweep house", due: "2013-10-27 23:59", completed: true}];
-    
-$(document).ready(function() {
+    {name : "Sweep house", due: "2013-10-27 23:59", completed: false}];
+
     //create list
-    $( "<ul class='list-group'>" ).appendTo( ".panel-body" );
+    $("<ul class='list-group'>").appendTo(".panel-body");
     for (var i=0; i < list.length; i++){
         try {
             writeList(list[i]);
@@ -19,7 +19,7 @@ $(document).ready(function() {
             console.log("Error:" + error);
         }
     } 
-    //determine how to display tasks according to completed status and check or missing task names
+    //determine how to display tasks according to completed status and check for missing task names
     function writeList (task){
         //check for missing task name data
         if (typeof task.name == 'undefined'){
@@ -28,14 +28,16 @@ $(document).ready(function() {
         //style completed tasks and remove
         if (task.completed){
         $("<li class='list-group-item done'>" + task.name + " </li>").appendTo('.list-group');
-        $(".done").remove();
         }
         else {
         $("<li class='list-group-item'>" + task.name + " </li>").appendTo('.list-group');
-        
         }
     }
     $( "</ul>" ).appendTo( ".panel-body" );
+    
+    function removeCompleted(){
+        $(".done").remove();
+        }
 });
 
    
