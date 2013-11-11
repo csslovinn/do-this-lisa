@@ -1,6 +1,5 @@
 //To-Do List
-$(document).ready(function() {
-    var list = [{due: "2013-10-30 19:00", completed: false}, 
+var list = [{due: "2013-10-30 19:00", completed: false}, 
     {name : "Groceries", due: "2013-10-26 16:00", completed: true}, 
     {name : "Homework", due: "2013-10-22 23:59", completed: true}, 
     {name : "Buy tent", due: "2013-11-25 16:00", completed: false}, 
@@ -10,6 +9,7 @@ $(document).ready(function() {
     {name : "Register for next class", due: "2013-12-01 16:00", completed: false}, 
     {name : "Sweep house", due: "2013-10-27 23:59", completed: false}];
 
+$(document).ready(function() {
     //create list
     $("<ul class='list-group'>").appendTo(".panel-body");
     for (var i=0; i < list.length; i++){
@@ -34,10 +34,24 @@ $(document).ready(function() {
         }
     }
     $( "</ul>" ).appendTo( ".panel-body" );
-    
-    function removeCompleted(){
+});
+
+function removeCompleted(){
         $(".done").remove();
         }
-});
+    
+/*function Task(name) {
+        this.name = name;
+        this.completed = false;
+        this.due = new Date();
+            due.setDate(due.getDate() + 7); 
+        }
+    
+function addTask(name) {
+        list.push(new Task());
+        writeList(name);
+    }*/
+
+
 
    
