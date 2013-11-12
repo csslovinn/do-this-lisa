@@ -39,18 +39,6 @@ $(document).ready(function() {
 function removeCompleted(){
         $(".done").remove();
         }
-    
-/*function Task(name) {
-        this.name = name;
-        this.completed = false;
-        this.due = new Date();
-            due.setDate(due.getDate() + 7); 
-        }
-    
-function addTask(name) {
-        list.push(new Task());
-        writeList(name);
-    }*/
 
 
 
