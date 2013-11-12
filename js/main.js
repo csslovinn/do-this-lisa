@@ -40,15 +40,16 @@ function writeList (task){
 function removeCompleted(){
         $(".done").remove();
         }
-
+//creates new object wth list properties
 function Task(name) {
     this.name = name;
     this.completed = false;
+    //sets due date to one week from today
     var due = new Date();
         due.setDate(due.getDate() + 7); 
     this.due = due;
         }
-  
+//adds new object to the list  
 function addTask(name) {
     var newTask = new Task(name);
     list.push(newTask);
