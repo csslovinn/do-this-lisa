@@ -19,8 +19,11 @@ $(document).ready(function() {
             console.log("Error:" + error);
         }
     } 
-    //determine how to display tasks according to completed status and check for missing task names
-    function writeList (task){
+});
+    $( "</ul>" ).appendTo( ".panel-body" );
+
+//determine how to display tasks according to completed status and check for missing task names
+function writeList (task){
         //check for missing task name data
         if (typeof task.name == 'undefined'){
             throw "Name is missing!";
@@ -33,12 +36,24 @@ $(document).ready(function() {
         $("<li class='list-group-item'>" + task.name + " </li>").appendTo('.list-group');
         }
     }
-    $( "</ul>" ).appendTo( ".panel-body" );
-});
 
 function removeCompleted(){
         $(".done").remove();
         }
+
+function Task(name) {
+    this.name = name;
+    this.completed = false;
+    var due = new Date();
+        due.setDate(due.getDate() + 7); 
+    this.due = due;
+        }
+  
+function addTask(name) {
+    var newTask = new Task(name);
+    list.push(newTask);
+    var add = writeList(newTask);
+    }
 
 
 
