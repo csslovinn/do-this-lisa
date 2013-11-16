@@ -18,9 +18,20 @@ $(document).ready(function() {
         }catch(error){
             console.log("Error:" + error);
         }
-    } 
+    }//end error handling
+    
+    $('.list-group').on('dblclick', 'li', function(){
+        checkOff($(this));
+    });
+    
+    $('#enterTask').on('submit', function(event){
+        event.preventDefault();
+        var myNewTask = $('input').val();
+        addTask(myNewTask);
+        $('input').val('');
+    }); 
+    
 });
-    $( "</ul>" ).appendTo( ".panel-body" );
 
 //determine how to display tasks according to completed status and check for missing task names
 function writeList (task){
@@ -33,13 +44,14 @@ function writeList (task){
         $("<li class='list-group-item done'>" + task.name + " </li>").appendTo('.list-group');
         }
         else {
-        $("<li class='list-group-item'>" + task.name + " </li>").appendTo('.list-group');
+        $("<li class='list-group-item'>" + task.name + "</li>").appendTo('.list-group');
         }
     }
 
 function removeCompleted(){
         $(".done").remove();
         }
+        
 //creates new object wth list properties
 function Task(name) {
     this.name = name;
@@ -49,13 +61,22 @@ function Task(name) {
         due.setDate(due.getDate() + 7); 
     this.due = due;
         }
+        
 //adds new object to the list  
 function addTask(name) {
     var newTask = new Task(name);
     list.push(newTask);
-    var add = writeList(newTask);
+    writeList(newTask);
     }
 
-
+//change task to completed and mark with .done
+function checkOff($task) {
+    $task.addClass('done');
+    for (var i=0; i < list.length; i++){
+        if ($task !== list[i].name) {
+            list[i].completed == true;
+        }
+    }
+}
 
    
